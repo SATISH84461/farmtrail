@@ -1,0 +1,35 @@
+{% extends "land/layout.html" %}
+
+{% block body %}
+
+    <h1 id='my_header'>Create Your Own Product</h1>
+
+    <form action="{% url 'land:create_listing' %}" method='POST'>
+        {% csrf_token  %}
+        <div class="labels_forms">
+            <h4>{{create_listing.area.label}}<br></h4>
+            {{create_listing.area}}<br>
+            <h4>{{create_listing.land_image.label}}<br></h4>
+            {{create_listing.land_image}}<br>
+            <h4>{{create_listing.land_info.label}}<br></h4>
+            {{create_listing.land_info}}<br>
+            <input type="submit" value="Submit" class="btn btn-outline-primary">
+        </div>
+    </form>
+    <style>
+        #my_header{
+            text-align: center;
+            margin: 0 0 5% 0;
+        }
+        form{
+            margin: 1% 10%;
+            text-align: center;
+        }
+        input[type=submit]{
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px 30%;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
